@@ -16,11 +16,11 @@ public class JobConfig {
 	private static Logger logger = LoggerFactory.getLogger(JobConfig.class);
 	
 	@Bean
-	public Job job(JobRepository jobRepository, Step fatchUserDataAndStoreDBStep) {
+	public Job job(JobRepository jobRepository, Step fetchUserDataAndStoreDBStep) {
 		logger.info("Start job execution ...");
 		
 		return new JobBuilder("job", jobRepository)
-				.start(fatchUserDataAndStoreDBStep)
+				.start(fetchUserDataAndStoreDBStep)
 				.incrementer(new RunIdIncrementer())
 				.build();
 	}
